@@ -168,7 +168,7 @@ bool find_by_neutrino_checks(const char *log_filename)
     processes_checksums.insert(0x6169078A);
     processes_checksums.insert(0x47000343);
     processes_checksums.insert(0xC608982D);
-    processes_checksums.insert(0x46EE4F10);
+    processes_checksums.insert(0x46EE4F10); // VMwareTray.exe
     processes_checksums.insert(0xF6EC4B30);
     processes_checksums.insert(0xB1CBC652); // VBoxService.exe
     processes_checksums.insert(0x6D3E6FDD); // VBoxTray.exe
