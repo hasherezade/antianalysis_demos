@@ -8,7 +8,7 @@
 inline bool is_kuser_shared_mapped()
 {
     if (IsBadReadPtr((BYTE*)KUSER_SHARED_VA, KUSER_SHARED_SIZE)) {
-        std::cerr << "KDB: Failed to retrieve the kernelmode debugging status\n";
+        std::cerr << "KDB: Failed to retrieve KUSER_SHARED_DATA\n";
         return false;
     }
     return true;
