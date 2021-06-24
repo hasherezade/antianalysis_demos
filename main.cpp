@@ -52,9 +52,6 @@ int main()
         is_detected = true;
         std::cout << "[*] Kernelmode debugging enabled!\n";
     }
-    else {
-
-    }
     if (is_detected) {
         MessageBoxA(NULL, "Analysis environment detected!", "Detected", MB_ICONEXCLAMATION | MB_OK);
     }
