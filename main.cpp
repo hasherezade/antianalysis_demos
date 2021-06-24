@@ -48,7 +48,8 @@ int main()
         is_detected = true;
         std::cout << "[*] Analysis detected by Neutrino set of checks\n";
     }
-    if (is_kernelmode_dbg_enabled()) {
+    t_kdb_mode kdb_mode = is_kernelmode_dbg_enabled();
+    if (kdb_mode == KDB_LOCAL_ENABLED || kdb_mode == KDB_REMOTE_ENABLED) {
         is_detected = true;
         std::cout << "[*] Kernelmode debugging enabled!\n";
     }

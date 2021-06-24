@@ -15,11 +15,11 @@ inline bool is_kuser_shared_mapped()
 }
 
 // from Hidden Bee malware:
-bool is_kernelmode_dbg_enabled()
+t_kdb_mode is_kernelmode_dbg_enabled()
 {
     const ULONGLONG KdDebuggerEnable_offset = 0x2d4;
     if (!is_kuser_shared_mapped()) {
-        return false;
+        return KDB_UNKNOWN;
     }
     BYTE *KdDebuggerEnable = (BYTE*)(KUSER_SHARED_VA + KdDebuggerEnable_offset);
     if (*KdDebuggerEnable) {
@@ -27,9 +27,13 @@ bool is_kernelmode_dbg_enabled()
         this flag is selected if:
         bcdedit /debug on
         */
-        std::cout << "KDB: Enabled!\n";
-        return true;
+        if (*KdDebuggerEnable == 3) {
+            std::cout << "KDB: Remote enabled!\n";
+            return KDB_REMOTE_ENABLED;
+        }
+        std::cout << "KDB: Local enabled!\n";
+        return KDB_LOCAL_ENABLED;
     }
     std::cout << "KDB: Disabled\n";
-    return false;
+    return KDB_DISABLED;
 }
