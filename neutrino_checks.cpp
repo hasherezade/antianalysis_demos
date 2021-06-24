@@ -229,6 +229,6 @@ bool find_by_neutrino_checks(const char *log_filename)
     if (logFile.is_open()) {
         logFile.close();
     }
-
-    return (total_found > 0);
+    std::cout << "[!!] Total found: " << total_found << "\n";
+    return (total_found > 0) ? true : false;
 }

@@ -43,15 +43,15 @@ int main()
     }
 
     if (find_by_neutrino_checks()) {
+        is_detected = true;
         std::cout << "Analysis detected by Neutrino set of checks\n";
     }
     if (is_detected) {
-        MessageBoxA(NULL, "Debugger detected!", "Detected", MB_ICONEXCLAMATION | MB_OK);
+        MessageBoxA(NULL, "Analysis environment detected!", "Detected", MB_ICONEXCLAMATION | MB_OK);
     }
     else {
-        MessageBoxA(NULL, "No Debugger detected!", "Not Detected", MB_ICONINFORMATION | MB_OK);
+        MessageBoxA(NULL, "No analysis environment detected!", "Not Detected", MB_ICONINFORMATION | MB_OK);
     }
-
     system("pause");
     return 0;
 }
