@@ -9,6 +9,7 @@ set (hdrs
 	classic_antidbg.h
 	classic_antivm.h
 	neutrino_checks.h
+	kernelmode_antidbg.h
 )
 
 set (srcs
@@ -16,6 +17,7 @@ set (srcs
 	classic_antidbg.cpp
 	classic_antivm.cpp
 	neutrino_checks.cpp
+	kernelmode_antidbg.cpp
 )
 
 add_executable ( ${PROJECT_NAME} ${exe_hdrs} ${srcs} main.cpp )
