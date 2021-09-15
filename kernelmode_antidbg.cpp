@@ -37,3 +37,4 @@ t_kdb_mode is_kernelmode_dbg_enabled()
     std::cout << "KDB: Disabled\n";
     return KDB_DISABLED;
 }
+
