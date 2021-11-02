@@ -5,6 +5,7 @@
 #include "classic_antivm.h"
 #include "neutrino_checks.h"
 #include "kernelmode_antidbg.h"
+#include "procmon_check.h"
 
 //#define SINGLE_STEPPING_CHECK
 
@@ -52,6 +53,10 @@ int main()
     if (kdb_mode == KDB_LOCAL_ENABLED || kdb_mode == KDB_REMOTE_ENABLED) {
         is_detected = true;
         std::cout << "[*] Kernelmode debugging enabled!\n";
+    }
+    if (is_procmon_sc_present()) {
+        is_detected = true;
+        std::cout << "[*] ProcMon service is present!\n";
     }
     if (is_detected) {
         MessageBoxA(NULL, "Analysis environment detected!", "Detected", MB_ICONEXCLAMATION | MB_OK);
