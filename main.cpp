@@ -93,11 +93,18 @@ int main()
     if (clearProcessDebugFlags()) {
         std::cout << "Flag cleared!\n";
     }
-    IsCCSet();
-#ifndef _WIN64
-    exec_int2d();
-#endif
     bool is_detected = false;
+    if (IsCCSet()) {
+        is_detected = true;
+        std::cout << "[*] Software breakpoints detected!\n";
+    }
+#ifndef _WIN64
+    if (exec_int2d()) {
+        is_detected = true;
+        std::cout << "[*] Debugger detected by 2D interrupt\n";
+    }
+#endif
+
     antidbg_timer_check();
     if (checkProcessDebugFlags()) {
         is_detected = true;
